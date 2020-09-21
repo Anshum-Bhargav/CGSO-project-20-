@@ -10,8 +10,8 @@ function preload(){
 function setup() {
   createCanvas(1600,400);
 
-  speed=random(55,90);
-  weight=random(400,1500);
+  speed=Math.round(random(55,90));
+  weight=Math.round(random(400,1500));
 
   car=createSprite(20,200,50,50);
   car.velocityX=speed;
@@ -27,7 +27,9 @@ function setup() {
 }
 
 function draw() {
-  background(255,255,255);  
+  background(255,255,255); 
+  text("weight: "+weight,800,10);
+  text("speed: "+speed,800,20);
 
   if(wall.x-car.x <= (car.width+wall.width)/2){
     car.velocityX=0;
@@ -56,8 +58,10 @@ function draw() {
 
 function reset(){
   car.x=20;
-  speed=random(55,90);
-  weight=random(400,1500);
+  
+  speed=Math.round(random(55,90));
+  weight=Math.round(random(400,1500));
+  
   car.velocityX=speed;
 
   car.shapeColor=color(80,80,80);
